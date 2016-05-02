@@ -25,6 +25,8 @@ before_script:
   ; ulimit -n 64000 ; fi ; ulimit -n 64000
 - ./autogen.sh
 script: ./ci_build.sh
+before_deploy:
+- ./ci_deploy.sh
 deploy:
   provider: releases
   api_key:
