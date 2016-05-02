@@ -29,7 +29,8 @@ deploy:
   provider: releases
   api_key:
     secure: jP+22/jUo/n4CebiZuH24iZL62bjwNo6nj7vYCbFcn24RJya7DoBuEtbuNzNsEYxmFz/rQh/z4fmit6x0TAkKr7aH/VoLBZGPqBXv++Fp42RyUPrYS9tasKx/qgAHZ7Vmg03ugWMq1ditme6ZjRAaDVaW/biu6fygUw83RbppaQ/aXlWmYILCo73SCMp7WF3v6VuSR8t7VzU1vZhggC6kvn/W9j0Gza0H3+6zeU0Xw1ZwyiCj+DWXfRi2L7MpVDQZZy9OgTC6SvhqN0b+gPPZz19rrxzrYeToeCbyhbVrwuIJ9Ii1tiF/4ip5bZsUaYy3Yph1XbZfChH4GwuligLwfHGcm5pbGkmz19W4hjREKuE9gbJFPfImTCdaKGAyap2aeCII+Lxp209cZJC53yHaADinpLY7U6f4avfMNaaUku5orG+W1AKmgz8knDSp4seauFw/S2EvfgvOWaPiMAkr6CRwcrBlHPDWNyzlhcAXYIvWLJypcHhmYLgLC5PI3kPA/7LgJZdSVIEurVHwAbsLI+bP6uakt/eD8hpGjcd1amU+WqchSZSSGj5eEr4wMOQczC1AUoIByDPa4nHkeVAZ+4P2SRCL83GiEVWy7io9qDGSXI/nNQ808cYyjXci8J78Ta2jnMnZ/4YVUDIyzblwO/zaKrORYd42UiMhsjKqyI=
-  file: $CZMQ_DEPLOYMENT
+  file_glob: true
+  file: "${CZMQ_DEPLOYMENT}"
   skip_cleanup: true
   on:
     repo: sappo/czmq
