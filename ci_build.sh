@@ -55,3 +55,11 @@ if [ "$BUILD_TYPE" == "default" ]; then
 else
     pushd "./builds/${BUILD_TYPE}" && REPO_DIR="$(dirs -l +1)" ./ci_build.sh
 fi
+
+if [ "$TRAVIS_TAG" != "" ]; then
+    if [ "$BUILD_TYPE" == "android" ]; then
+        export CZMQ_DEPLOYMENT=builds/android/prefix/arm-linux-androideabi-4.9/lib/libczmq.a
+    else
+        export CZMQ_DEPLOYMENT=""
+    fi
+fi
