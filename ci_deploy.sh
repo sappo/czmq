@@ -7,6 +7,6 @@ if [ "$TRAVIS_TAG" != "" ]; then
     if [ "$BUILD_TYPE" == "android" ]; then
         export CZMQ_DEPLOYMENT=builds/android/prefix/arm-linux-androideabi-4.9/lib/libczmq.a
     else
-        export CZMQ_DEPLOYMENT=""
+        export CZMQ_DEPLOYMENT="README.md"
     fi
 fi
