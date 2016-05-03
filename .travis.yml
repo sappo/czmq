@@ -38,4 +38,4 @@ deploy:
     repo: sappo/czmq
     branch: master
     tags: true
-    condition: $CZMQ_DEPLOYMENT != 'skip'
+    condition: "$CZMQ_DEPLOYMENT" != "skip"
