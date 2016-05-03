@@ -10,3 +10,4 @@ if [ "$TRAVIS_TAG" != "" ]; then
         export CZMQ_DEPLOYMENT="README.md"
     fi
 fi
+export
