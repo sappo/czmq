@@ -38,4 +38,4 @@ deploy:
     repo: sappo/czmq
     branch: master
     tags: true
-    condition: "$BUILD_TYPE =~ (default|android)"
+    condition: "$TRAVIS_OS_NAME =~ (linux) && $BUILD_TYPE =~ (default|android)"
