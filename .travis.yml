@@ -1,6 +1,6 @@
 # Travis CI script
 
-language: c
+language: java
 
 os:
 - linux
@@ -19,6 +19,7 @@ env:
   # As we have errors in bindings/python/test.py I'm suspending this...
   #- BUILD_TYPE=check-py
   - BUILD_TYPE=cmake
+  - BUILD_TYPE=bindings BINDING=jni
 addons:
   apt:
     packages:

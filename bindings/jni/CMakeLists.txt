@@ -7,7 +7,7 @@ find_package (JNI REQUIRED)
 find_library (ZMQ_LIBRARY NAMES zmq libzmq REQUIRED)
 find_library (CZMQ_LIBRARY NAMES czmq REQUIRED)
 
-include_directories (${JAVA_INCLUDE_PATH} ${JAVA_INCLUDE_PATH2} ../../include src/native/include)
+include_directories (${JAVA_INCLUDE_PATH} ${JAVA_INCLUDE_PATH2} include src/native/include)
 
 set (czmqjni_sources
     src/main/c/org_zeromq_czmq_Zarmour.c
