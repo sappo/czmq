@@ -66,3 +66,7 @@ task buildNative(type: Exec, dependsOn: 'initCMake') {
 }
 jar.dependsOn buildNative
 test.dependsOn buildNative
+
+clean.doFirst {
+    delete "${rootDir}/CMakeCache.txt"
+}

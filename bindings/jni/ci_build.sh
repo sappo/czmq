@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-set -x set -e
+set -x
+set -e
 
-#  ###############################
-#  Build and check the jni binding
-#  ###############################
+########################################################################
+# Build and check the jni binding
+########################################################################
 
-BUILD_PREFIX=$PWD
+BUILD_PREFIX=/tmp
 
 CONFIG_OPTS=()
 CONFIG_OPTS+=("CFLAGS=-I${BUILD_PREFIX}/include")
@@ -38,12 +39,12 @@ make install
 
 popd
 
-TERM=dumb CMAKE_PREFIX_PATH=$BUILD_PREFIX gradle build jar
+TERM=dumb PKG_CONFIG_PATH=$BUILD_PREFIX/lib/pkgconfig gradle build jar
 TERM=dumb gradle clean
 
-#  #######################################
+########################################################################
 #  Build and check the jni android binding
-#  #######################################
+########################################################################
 
 pushd ../../builds/android
 
@@ -53,8 +54,6 @@ popd
 
 pushd android
 
-TERM=dumb PKG_CONFIG_PATH="/tmp/libzmq/builds/android/prefix/arm-linux-androideabi-4.9/lib/pkgconfig:/home/travis/build/sappo/czmq/builds/android/prefix/arm-linux-androideabi-4.9/lib/pkgconfig" CMAKE_PREFIX_PATH="/tmp/libzmq/builds/android/prefix/arm-linux-androideabi-4.9/;/home/travis/build/sappo/czmq/builds/android/prefix/arm-linux-androideabi-4.9" ./build.sh
+TERM=dumb PKG_CONFIG_PATH=$BUILD_PREFIX/lib/pkgconfig ./build.sh
 
 popd
-
-ls android
