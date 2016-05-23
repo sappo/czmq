@@ -39,8 +39,8 @@ make install
 
 popd
 
-TERM=dumb PKG_CONFIG_PATH=$BUILD_PREFIX/lib/pkgconfig gradle build jar
-TERM=dumb gradle clean
+TERM=dumb PKG_CONFIG_PATH=$BUILD_PREFIX/lib/pkgconfig ./gradlew build jar
+TERM=dumb ./gradlew clean
 
 ########################################################################
 #  Build and check the jni android binding

@@ -36,7 +36,7 @@ echo "********  Building CZMQ Android native libraries"
 
 #   Ensure we've built JNI interface
 echo "********  Building CZMQ JNI interface & classes"
-( cd .. && gradle build jar )
+( cd .. && ./gradlew build jar )
 
 echo "********  Building CZMQ JNI for Android"
 rm -rf build && mkdir build && cd build
