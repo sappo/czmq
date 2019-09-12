@@ -16,7 +16,7 @@
 #     TOOLCHAIN_PATH=$ANDROID_NDK_ROOT/toolchains/$TOOLCHAIN_NAME/prebuilt/linux-x86_64/bin
 #
 #   Exit if any step fails
-set -e
+set +e
 set -x
 
 export ANDROID_API_LEVEL=android-8
@@ -25,22 +25,23 @@ if [ "$1" = "-d" ]; then
     MAKE_OPTIONS=VERBOSE=1
 fi
 
-source ../../../builds/android/android_build_helper.sh
+source ../../../../builds/android/android_build_helper.sh
 android_build_env
 
 #   Build any dependent libraries
 
 #   Ensure we've built dependencies for Android
 echo "********  Building CZMQ Android native libraries"
-( cd ../../../builds/android && ./build.sh )
+( cd ../../../../builds/android && ./build.sh )
 
 #   Ensure we've built JNI interface
 echo "********  Building CZMQ JNI interface & classes"
-( cd .. && ./gradlew build jar )
+( cd ../.. && ./gradlew build jar )
 
 echo "********  Building CZMQ JNI for Android"
 rm -rf build && mkdir build && cd build
 export ANDROID_BUILD_PREFIX=$ANDROID_BUILD_PREFIX
+ls -l ${ANDROID_BUILD_PREFIX}/lib/pkgconfig
 cmake -v -DCMAKE_TOOLCHAIN_FILE=../android_toolchain.cmake ..
 
 #   CMake wrongly searches current directory and then toolchain path instead
@@ -57,7 +58,7 @@ unzip -q ../../build/libs/czmq-jni-4.2.1.jar
 #   Copy native libraries into lib/armeabi
 mkdir -p lib/armeabi
 mv libczmqjni.so lib/armeabi
-cp ../../../../builds/android/prefix/*/lib/*.so lib/armeabi
+cp ../../../../../builds/android/prefix/*/lib/*.so lib/armeabi
 
 cp $ANDROID_NDK_ROOT/sources/cxx-stl/gnu-libstdc++/$TOOLCHAIN_VERSION/libs/armeabi/libgnustl_shared.so lib/armeabi
 

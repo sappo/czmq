@@ -17,6 +17,7 @@ public class ZmqNativeLoader {
                 if (optional) {
                     System.err.println("[WARN] " + e.getMessage() + " from jar. Assuming it is installed on the system.");
                 } else {
+                    System.err.println("[FATAL] " + e.getMessage() + " from jar. Dependency is required!");
                     System.exit(-1);
                 }
             }

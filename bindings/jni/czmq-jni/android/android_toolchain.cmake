@@ -14,6 +14,8 @@ set (BUILD_ANDROID True)
 include (CMakeForceCompiler)
 include (FindPkgConfig)
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../../../..")
+
 # Where is the target environment
 set (ANDROID_NDK_ROOT $ENV{ANDROID_NDK_ROOT})
 set (ANDROID_SYS_ROOT $ENV{ANDROID_SYS_ROOT})

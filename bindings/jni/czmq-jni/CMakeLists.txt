@@ -9,7 +9,7 @@ enable_language (C)
 
 # Search for Find*.cmake files in the following locations
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../..")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../../..")
 
 ########################################################################
 # JNI dependency

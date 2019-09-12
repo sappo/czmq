@@ -166,6 +166,10 @@ matrix:
       apt:
         packages:
         - openjdk-8-jdk
+  - env: BUILD_TYPE=bindings BINDING=jni
+    os: osx
+    dist: xenial
+    compiler: clang
   - env: BUILD_TYPE=default ADDRESS_SANITIZER=enabled
     os: linux
 #    dist: xenial
